@@ -45,6 +45,10 @@
 #undef OS_LINUX
 
 
+/* Mac OS X */
+
+#undef OS_MAC_OS_X
+
 /* MS Windows 95/NT */
 
 #undef OS_MSWINDOWS
@@ -77,10 +81,6 @@
 /* Define if support for the Boehm C Garbage Collector is provided/ */
 #undef USE_GC_SUPPORT_P 
 
-/* Define if new hash table code is desired. (It should be a good idea
- * to use this with the new GC).
- */
-#undef HAVE_NEW_HASH_P
 
 #endif  /* crscl_config_h */
 

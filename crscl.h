@@ -159,6 +159,20 @@ typedef lv* list_t;
 
 #define L_OTHER		255
 
+  /*
+typedef enum l_type {
+  L_FREE = 0,
+  L_CONS,
+  L_STRING,
+  L_SYMBOL,
+  L_NODE,
+  L_FIXNUM,
+  L_DOUBLE,
+
+  L_OTHER = 255
+};
+  */
+
 /* flags */
 #define L_STATIC	0x0001
 
