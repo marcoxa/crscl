@@ -1,0 +1,151 @@
+2001-08-14  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/crscl_config.h.in, /projects/cvs-repository/crscl/crscl.h, /projects/cvs-repository/crscl/crscl.c:
+	Changed intestation and added reference to COPYING file.
+
+	* /projects/cvs-repository/crscl/Makefile.in: Added COPYING notice.
+
+	* /projects/cvs-repository/crscl/COPYING: Added file.
+
+2001-06-28  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/crscl.h:
+	Added type 'lv_t' (nicer Emacs colors!!!)
+
+2001-06-20  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/ChangeLog: ChangeLog updated.
+
+	* /projects/cvs-repository/crscl/crscl.c:
+	Modified all the references to the readstream stuff after the
+	modification of the file name field.
+	Also checked several of the calls to 'malloc' related functions.
+
+	* /projects/cvs-repository/crscl/crscl.h:
+	Modified the definition of the 'readstream' struct.
+	Now the file name is part of a struct within the union.
+
+2001-06-20  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/crscl.c:
+	Modified all the references to the readstream stuff after the
+	modification of the file name field.
+	Also checked several of the calls to 'malloc' related functions.
+
+	* /projects/cvs-repository/crscl/crscl.h:
+	Modified the definition of the 'readstream' struct.
+	Now the file name is part of a struct within the union.
+
+2001-05-19  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/crscl.h:
+	Added namespace 'crscl' for C++.
+
+	* /projects/cvs-repository/crscl/crscl.h, /projects/cvs-repository/crscl/crscl.c:
+	Added 'stream_stream_p' and 'string_stream_p'.
+
+2001-05-18  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/crscl.h:
+	Again, fixed minor error (another typo).
+
+	* /projects/cvs-repository/crscl/crscl.h:
+	Fixed a minor typo (a mispelled #define).
+
+	* /projects/cvs-repository/crscl/ChangeLog: ChangeLog updated.
+
+	* /projects/cvs-repository/crscl/crscl.h:
+	Cleaned up Symbol Table definitions to make the code re-entrant.
+
+	* /projects/cvs-repository/crscl/crscl.c:
+	Cleaned up Symbol Table implementation.  Now the code is re-entrant.
+
+	* /projects/cvs-repository/crscl/ChangeLog: ChangeLog updated.
+
+	* /projects/cvs-repository/crscl/Makefile.in:
+	Reworked 'install' and 'uninstall' procedures.
+
+	* /projects/cvs-repository/crscl/crscl.h:
+	Added linkage "C" specification for inclusion in C++ programs.
+
+	* /projects/cvs-repository/crscl/crscl.c: Fixed minor typos.
+
+	* /projects/cvs-repository/crscl/configure.in:
+	Fixed substitution for INSTALL.
+
+2001-05-18  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/crscl.h:
+	Cleaned up Symbol Table definitions to make the code re-entrant.
+
+	* /projects/cvs-repository/crscl/crscl.c:
+	Cleaned up Symbol Table implementation.  Now the code is re-entrant.
+
+	* /projects/cvs-repository/crscl/ChangeLog: ChangeLog updated.
+
+	* /projects/cvs-repository/crscl/Makefile.in:
+	Reworked 'install' and 'uninstall' procedures.
+
+	* /projects/cvs-repository/crscl/crscl.h:
+	Added linkage "C" specification for inclusion in C++ programs.
+
+	* /projects/cvs-repository/crscl/crscl.c: Fixed minor typos.
+
+	* /projects/cvs-repository/crscl/configure.in:
+	Fixed substitution for INSTALL.
+
+2001-05-18  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/Makefile.in:
+	Reworked 'install' and 'uninstall' procedures.
+
+	* /projects/cvs-repository/crscl/crscl.h:
+	Added linkage "C" specification for inclusion in C++ programs.
+
+	* /projects/cvs-repository/crscl/crscl.c: Fixed minor typos.
+
+	* /projects/cvs-repository/crscl/configure.in:
+	Fixed substitution for INSTALL.
+
+2001-05-14  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/ChangeLog: ChangeLog updated.
+
+	* /projects/cvs-repository/crscl/crscl.c:
+	Added 'memset 0' after most calls to 'crscl_malloc' to make sure to
+	have initially zeroed memory.
+
+2001-05-14  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/crscl.c:
+	Added 'memset 0' after most calls to 'crscl_malloc' to make sure to
+	have initially zeroed memory.
+
+2001-05-12  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/ChangeLog:
+	ChangeLog added to repository.
+
+	* /projects/cvs-repository/crscl/configure.in:
+	Updated configure script.
+
+	* /projects/cvs-repository/crscl/crscl.c:
+	Added call to 'memset' to zero memory obtained in 'lalloc'.  Also
+	changed call to 'malloc' in 'lalloc' to 'crscl_malloc'.
+
+2001-05-12  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/configure.in:
+	Updated configure script.
+
+2001-05-12  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/crscl.c:
+	Added call to 'memset' to zero memory obtained in 'lalloc'.  Also
+	changed call to 'malloc' in 'lalloc' to 'crscl_malloc'.
+
+2001-04-10  Marco Antoniotti  <marcoxa@cs.nyu.edu>
+
+	* /projects/cvs-repository/crscl/config.guess, /projects/cvs-repository/crscl/config.sub, /projects/cvs-repository/crscl/configure.in, /projects/cvs-repository/crscl/crscl.c, /projects/cvs-repository/crscl/crscl_config.h.in, /projects/cvs-repository/crscl/crscl.h, /projects/cvs-repository/crscl/install-sh, /projects/cvs-repository/crscl/Makefile.in:
+	Added files to repository.
+

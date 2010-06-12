@@ -1,0 +1,59 @@
+# Makefile for CRSCL.
+
+# Please see the COPYING file for licensing information.
+
+#------------------------------------------------------------------------------
+# Variables.
+
+CC =		@CC@
+CFLAGS =	-g
+
+CP =	 	cp
+
+INSTALL =	@INSTALL@
+
+prefix =	@prefix@
+exec_prefix =	@exec_prefix@
+libdir =	@libdir@
+includedir =	@includedir@
+
+OBJECTS	=	crscl.o
+LIBOBJECTS =	libcrscl.a
+HEADERS =	crscl.h
+
+#------------------------------------------------------------------------------
+# Building targets.
+
+all: $(LIBOBJECTS)
+
+libcrscl.a: $(OBJECTS)
+	-$(RM) libcrscl.a
+	$(AR) cr libcrscl.a $(OBJECTS)
+
+crscl.o: crscl.c crscl.h
+	$(CC) -c $(CFLAGS) crscl.c
+
+FORCE:
+
+#------------------------------------------------------------------------------
+# Standard targets.
+
+clean:
+	-$(RM) $(OBJECTS) $(LIBOBJECTS) core a.out *~
+
+distclean: clean
+	-$(RM) config.cache config.log config.status
+
+install:
+	$(INSTALL) $(LIBOBJECTS) $(libdir)
+	$(INSTALL) $(HEADERS) $(includedir)
+
+
+# Note: this  rule is probably GNU make dependent.
+
+uninstall:
+	-$(RM) $(LIBOBJECTS:%=$(libdir)/%)
+	-$(RM) $(HEADERS:%=$(includedir)/%)
+
+
+# end of file -- Makefile --

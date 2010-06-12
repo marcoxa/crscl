@@ -1,0 +1,87 @@
+/* -*- Mode: C -*- */
+
+/* crscl_config.h -- */
+
+/* crscl_config.h.in.  Generated automatically from configure.in by
+ * autoheader and later manually modified.
+ */
+
+/* Please refer to the COPYING file for licensing details. */
+
+#ifndef crscl_config_h
+#define crscl_config_h
+
+/* Discriminating the platform and the operating system */
+
+/* Various Sun */
+
+#undef OS_SOLARIS
+#undef OS_SUNOS5
+#undef OS_SUNOS4
+
+
+/* Various SGI */
+
+#undef OS_IRIX
+
+
+/* Various IBM */
+
+#undef OS_AIX
+
+
+/* Various SCO */
+
+#undef OS_SCOUNIX
+
+
+/* Various FreeBSD */
+
+#undef OS_FREEBSD
+
+
+/* Various Linux */
+
+#undef OS_LINUX
+
+
+/* MS Windows 95/NT */
+
+#undef OS_MSWINDOWS
+#undef WIN32
+
+
+/* Other OS's and platforms */
+
+#undef OS_OTHER
+
+
+/* Define to empty if the keyword does not work.  */
+#undef const
+
+/* Define as __inline if that's what the C compiler calls it.  */
+#undef inline
+
+/* Define to `unsigned' if <sys/types.h> doesn't define.  */
+#undef size_t
+
+/* Define if you have the ANSI C header files.  */
+#undef STDC_HEADERS
+
+/* Define if you have the strdup function.  */
+#undef HAVE_STRDUP
+
+/* Define if you have the <unistd.h> header file.  */
+#undef HAVE_UNISTD_H
+
+/* Define if support for the Boehm C Garbage Collector is provided/ */
+#undef USE_GC_SUPPORT_P 
+
+/* Define if new hash table code is desired. (It should be a good idea
+ * to use this with the new GC).
+ */
+#undef HAVE_NEW_HASH_P
+
+#endif  /* crscl_config_h */
+
+/* end of file -- crscl_config.h -- */

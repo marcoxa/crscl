@@ -1,0 +1,96 @@
+dnl -*- Mode: M4 -*-
+
+dnl configure.in -- Configure script for 'crscl' library.
+dnl Process this file with autoconf to produce a configure script.
+
+AC_PREREQ(2.10)
+
+AC_INIT(crscl.c)
+AC_CANONICAL_HOST
+
+AC_CONFIG_HEADER(crscl_config.h)
+
+dnl Checks for programs.
+AC_PROG_CC
+AC_PROG_MAKE_SET
+AC_PROG_INSTALL
+
+dnl Checks for libraries.
+
+dnl Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS(limits.h unistd.h)
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_C_INLINE
+AC_TYPE_SIZE_T
+
+
+dnl Checks for library functions.
+AC_CHECK_FUNCS(strdup strtod strtol)
+
+case $host_os in
+    solaris2.*)
+
+	# Define a configure preprocessor directive
+
+	AC_DEFINE(OS_SOLARIS)
+	AC_DEFINE(OS_SUNOS5)
+	;;
+
+    sunos4.*)
+
+	# Define a configure preprocessor directive
+
+	AC_DEFINE(OS_SUNOS4)
+	;;
+
+    irix*)
+
+	# Define a configure preprocessor directive
+
+	AC_DEFINE(OS_IRIX)
+	;;
+
+    *freebsd*)
+
+	# Define a configure preprocessor directive
+
+	AC_DEFINE(OS_FREEBSD)
+	;;
+
+    *linux*)
+
+	# Define a configure preprocessor directive
+
+	AC_DEFINE(OS_LINUX)
+	;;
+
+
+    *darwin*)
+
+	# Define a configure preprocessor directive
+
+	AC_DEFINE(OS_MAC_OS_X)
+	;;
+
+    *windows*)
+
+	# Define a configure preprocessor directive
+
+	AC_DEFINE(OS_MSWINDOWS)
+	AC_DEFINE(WIN32)
+	;;
+
+    *) # default
+
+	# Define a configure preprocessor directive
+	AC_MSG_WARN(OS ${host_os} not yet handled.)
+	AC_MSG_WARN(Compilation and Runtime may break down later on.)
+	AC_DEFINE(OS_OTHER)
+esac
+
+AC_OUTPUT(Makefile)
+
+dnl end of file -- configure.in --
