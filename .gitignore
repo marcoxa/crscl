@@ -1,0 +1,12 @@
+# crscl ingored files.
+
+Makefile
+*.cache
+*.o
+config.log
+config.status
+configure
+crscl_config.h.in
+libcrscl.*
+
+# end of file -- .gitignore --
