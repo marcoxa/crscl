@@ -249,7 +249,7 @@ typedef enum l_type {
 
 #define dolist(x, l)	{ lv *x, *_x; for (_x = (l); _x; _x = tl(_x)) \
 			    { (x) = hd(_x); {
-									  
+
 #define tsilod }}}
 #define end_dolist }}}
 
@@ -289,7 +289,7 @@ typedef enum l_type {
  * The presence of shtab here is not warranted.  It was needed in the
  * old SHIFT embedded implementation because of some funky setup.  But
  * the shtab is accessed solely via 'intern' and 'clear_crscl_tables',
- * hence it (and its stupid support macros) can be removed from here.
+ * hence it (and its support macros) can be removed from here.
  *
  * 2001-05-18 Marco Antoniotti
  */
@@ -331,6 +331,10 @@ extern inline rs *make_string_stream(char *);
 extern inline int stream_stream_p(rs *);
 extern inline int string_stream_p(rs *);
 extern inline void close_stream(rs*);
+
+extern rs* standard_input;
+extern rs* standard_output;
+extern rs* standard_error;
 
 
 extern int crscl_read_base;
