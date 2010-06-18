@@ -90,7 +90,10 @@ lv *read_c_symbol(rs *);
 int write_sexpr(lv *, char *);
 void print(lv *);
 void write_sexpr1(lv *, FILE *);
+
+inline _Bool null(lv *);
 inline lv *cons(lv *, lv *);
+
 lv *string(const char *);
 lv *stringl(char *, int);
 inline lv *fixnum(int);
@@ -1087,8 +1090,18 @@ void write_sexpr1(lv *s, FILE* fp)
 
 
 /*
- * Basic constructors
+ * Basic constructors and predicates.
  */
+
+inline _Bool
+null(lv *x) {
+  return
+    x == nil
+    || x->type == L_NULL
+    || x == intern("nil")
+    || x == intern("NIL");
+}
+
 
 inline lv *
 cons(lv *a, lv *b)
@@ -1098,7 +1111,9 @@ cons(lv *a, lv *b)
   s = lalloc();
   s->type = L_CONS;
   hd(s) = a;
-  tl(s) = b;
+
+  /* Special case for 'nil'. */
+  tl(s) = null(b) ? nil : b;
   return s;
 }
 
