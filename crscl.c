@@ -67,6 +67,7 @@ lv* shtab[L_HSIZE];
 
 lv *intern(char *);
 int shash(char *);
+int crscl_table_size();
 void clear_crscl_tables();
 
 lv *read_sexpr(char *);
@@ -742,9 +743,11 @@ read_sexpr_atom(rs* fp)
     lv* double_result;
 
     read_buf[i++] = 0;
-    if ((!strcmp(read_buf, "nil")) || (!strcmp(read_buf, "NIL")))
+    /* if ((!strcmp(read_buf, "nil")) || (!strcmp(read_buf, "NIL")))
       return nil;
-    else if (read_buffer_as_fixnum(read_buf, &fixnum_result))
+    else
+    */
+    if (read_buffer_as_fixnum(read_buf, &fixnum_result))
       return fixnum_result;
     else if (read_buffer_as_double(read_buf, &double_result))
       return double_result;
@@ -1324,6 +1327,15 @@ shash(char* p)
     }
   return h;
 }
+
+
+int
+crscl_table_size() { return L_HSIZE; }
+
+
+lv*
+crscl_table_ref(int i) { return shtab[i]; }
+
 
 void
 clear_crscl_tables()
