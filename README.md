@@ -15,6 +15,7 @@ See the file COPYING for licensing information
 # COPYRIGHT
 
 Copyright (c) 1998-2021 Marco Antoniotti, all rights reserved.
+
 See the file COPYING for more detailed copyright notices.
 
 
