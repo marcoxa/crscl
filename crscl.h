@@ -45,6 +45,10 @@ namespace crscl {
 extern "C" {
 #endif
 
+/* Necessary #includes. */
+
+#include <stdbool.h>
+
 /* The main Lisp object data structure. */
 
 typedef struct lispval
@@ -156,6 +160,7 @@ typedef lv* list_t;
 #define L_NODE		4
 #define L_FIXNUM	5
 #define L_DOUBLE        6
+#define L_NULL          7
 
 #define L_OTHER		255
 
@@ -168,6 +173,7 @@ typedef enum l_type {
   L_NODE,
   L_FIXNUM,
   L_DOUBLE,
+  L_NULL,
 
   L_OTHER = 255
 };
@@ -183,8 +189,11 @@ typedef enum l_type {
 #define eq(x, y)	((x) == (y))
 
 #define consp(x)	((x) != 0 && (x)->type == L_CONS)
-#define null(x)         ((x) == nil)
+  /* #define null(x)         ((x) == nil) */
 #define cons_or_null_p(x) (null(x) || consp(x))
+
+extern inline _Bool null(lv *);
+
 
 #define hd(x)		((x)->u.c.car)
 #define tl(x)		((x)->u.c.cdr)
@@ -247,8 +256,12 @@ typedef enum l_type {
 #define alist2(k1, v1, k2, v2)		acons(k1, v1, alist1(k2, v2))
 #define alist3(k1, v1, k2, v2, k3, v3)	acons(k1, v1, alist2(k2, v2, k3, v3))
 
-#define dolist(x, l)	{ lv *x, *_x; for (_x = (l); _x; _x = tl(_x)) \
-			    { (x) = hd(_x); {
+#define dolist(__crscl_x_temp__, __crscl_l_temp__)	{	\
+  lv *__crscl_x_temp__, *__crscl_l_local_temp__;		\
+  for (__crscl_l_local_temp__ = (__crscl_l_temp__);		\
+       __crscl_l_local_temp__ != (lv*) 0;			\
+       __crscl_l_local_temp__ = tl(__crscl_l_local_temp__)) {	\
+     __crscl_x_temp__ = hd(__crscl_l_local_temp__); {
 
 #define tsilod }}}
 #define end_dolist }}}
@@ -256,7 +269,7 @@ typedef enum l_type {
 #define strsave(x)	(str(string(x)))
 #define strsavel(x, l)	(str(stringl(x, l)))
 
-#define nil 0
+#define nil ((lv*) 0)
 
 /*
  * Symbol hashing
@@ -314,6 +327,8 @@ typedef enum l_type {
 
 extern lv *intern(char *);
 extern int shash(char *);
+extern lv* crscl_table_ref(int t);
+extern int crscl_table_size();
 extern void clear_crscl_tables();
 
 #endif /* _CRSCL_LISP_I */

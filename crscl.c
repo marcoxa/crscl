@@ -1178,13 +1178,16 @@ symbol(char* pname)
     
   s = lalloc();
   s->type = L_SYMBOL;
-  pname(s) = malloc(strlen(pname) + 1);
-  if (pname(s) == 0)
-    {
-      fputs("lisp.c: unable to allocate heap memory.\n", stderr);
-      fflush(stderr);
-      exit(1);
-    }
+  pname(s) = (char*) crscl_malloc((strlen(pname) + 1) * sizeof(char), 1);
+
+  /* pname(s) = malloc(strlen(pname) + 1); */
+  /* if (pname(s) == 0) */
+  /*   { */
+  /*     fputs("lisp.c: unable to allocate heap memory.\n", stderr); */
+  /*     fflush(stderr); */
+  /*     exit(1); */
+  /*   } */
+
   strcpy(pname(s), pname);
   sindex(s) = 0;
   plist(s) = 0;
